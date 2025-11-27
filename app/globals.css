@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
+/* =================================================================
+    VARIÁVEIS DE COR (Referência à Imagem de Seleção)
+================================================================= */
+
+/* ===========================
+    LIGHT THEME (padrão)
+=========================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Marca e Destaque */
+  --color-primary: #5f6f52;
+  --color-primary-hover: #4c5943;
+
+  --color-secondary: #99a094;
+  --color-secondary-hover: #80887a;
+
+  /* Fundo e Superfícies */
+  --background: #f6f5f4;
+  --surface: #ffffff;
+  --surface-alt: #f9f8ec;
+
+  /* Texto */
+  --foreground: #343a40;
+  --text-muted: #495057;
+  --text-black: #121212;
+
+  /* Botões */
+  --bg-button-color: #99a194;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ===========================
+    DARK THEME
+=========================== */
+.dark {
+  /* Marca e Destaque (Invertido para acessibilidade) */
+  --color-primary: #99a194;
+  --color-primary-hover: #80887a;
+
+  --color-secondary: #5f6f52;
+
+  /* Fundo e Superfícies (Escuras) */
+  --background: #181a1b;
+  --surface: #25282a;
+  --surface-alt: #343a40;
+
+  /* Texto */
+  --foreground: #eeeeee;
+  --text-muted: #b9b1a9;
+  --text-black: #efefef;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* === TIPOGRAFIA GLOBAL === */
+h1,
+h2 {
+  font-family: var(--font-fredoka-sans), sans-serif;
 }
 
+h3,
+h4,
+h5 {
+  font-family: var(--font-inter-sans), Arial, sans-serif;
+}
+
+/* ===========================
+    BASE
+=========================== */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter-sans), Arial, sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* ===========================
+    UTILITÁRIAS (Ajustado para novas variáveis)
+=========================== */
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-primary-hover:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-surface {
+  background-color: var(--surface);
+}
+
+.bg-button-color {
+  background-color: var(--bg-button-color);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
 }
