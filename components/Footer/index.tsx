@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Instagram, Facebook, Mail } from "lucide-react";
-import { Container } from "../Layout/Container";
+import Container from "../Layout/Container";
 
 export function Footer() {
   return (
@@ -36,7 +36,10 @@ export function Footer() {
             <Link href="/sobre" className=" hover:underline transition-colors">
               Sobre
             </Link>
-            <Link href="#" className=" hover:underline transition-colors">
+            <Link
+              href="/servicos"
+              className=" hover:underline transition-colors"
+            >
               Serviços
             </Link>
             <Link href="#" className=" hover:underline transition-colors">

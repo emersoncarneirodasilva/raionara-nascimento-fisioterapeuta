@@ -1,10 +1,10 @@
-import { Container } from "@/components/Layout/Container";
+import Container from "@/components/Layout/Container";
 
 export default function CtaSection() {
   return (
     <section className="py-24 bg-(--background)">
       <Container className="text-center max-w-3xl">
-        <h2 className="text-4xl font-medium md:text-4xl text-primary mb-6">
+        <h2 className="text-3xl font-medium md:text-4xl text-foreground mb-6">
           Seu movimento começa com uma decisão
         </h2>
         <p className="text-muted mb-10 leading-relaxed text-lg">

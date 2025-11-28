@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Container } from "@/components/Layout/Container";
+import Container from "@/components/Layout/Container";
 
 export default function HeroSection() {
   return (

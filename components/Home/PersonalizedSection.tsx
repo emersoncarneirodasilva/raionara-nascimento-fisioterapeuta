@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { Container } from "@/components/Layout/Container";
+import Container from "@/components/Layout/Container";
 
 export default function PersonalizedSection() {
   return (
     <section className="py-24 bg-surface">
       <Container>
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-medium text-primary mb-2">
+          <h2 className="text-3xl font-medium md:text-4xl text-foreground mb-2">
             Fisioterapia personalizada
           </h2>
           <p className="text-muted text-sm max-w-2xl mx-auto">
@@ -51,10 +51,10 @@ export default function PersonalizedSection() {
               },
             ].map((item) => (
               <div key={item.number} className="flex flex-col items-center">
-                <div className="w-14 h-14 rounded-full border-3 border-[(--color-primary)] text-primary flex items-center justify-center text-3xl font-light mb-4">
+                <div className="w-14 h-14 rounded-full border-3 border-primary text-primary flex items-center justify-center text-3xl font-light mb-4">
                   {item.number}
                 </div>
-                <h4 className="font-bold text-primary mb-2">{item.title}</h4>
+                <h3 className="font-bold text-primary mb-2">{item.title}</h3>
                 <p className="text-sm text-muted text-center leading-relaxed">
                   {item.text}
                 </p>

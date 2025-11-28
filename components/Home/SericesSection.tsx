@@ -1,5 +1,5 @@
 import { HomeCard } from "@/components/Card/HomeCard";
-import { Container } from "@/components/Layout/Container";
+import Container from "@/components/Layout/Container";
 import { Dumbbell, Hand, Target } from "lucide-react";
 
 const servicesData = [
@@ -27,7 +27,7 @@ export default function ServicesSection() {
   return (
     <section className="py-24 bg-(--background)">
       <Container>
-        <h2 className="text-4xl font-medium text-center mb-16 text-primary">
+        <h2 className="text-3xl font-medium md:text-4xl text-center mb-16 text-foreground">
           Serviços
         </h2>
 

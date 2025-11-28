@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
-import { Container } from "../Layout/Container";
+import Container from "../Layout/Container";
 
 export function Header() {
   return (
@@ -27,7 +27,7 @@ export function Header() {
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden text-(--text-black) md:flex gap-8 font-medium tracking-wide">
+        <nav className="hidden text-(--text-black) md:flex gap-8 text-sm lg:text-base font-medium tracking-wide">
           <Link
             href="/"
             className="hover:text-(--color-secondary-hover) transition-colors"
@@ -41,7 +41,7 @@ export function Header() {
             Sobre
           </Link>
           <Link
-            href="#servicos"
+            href="/servicos"
             className="hover:text-(--color-secondary-hover) transition-colors"
           >
             Serviços
