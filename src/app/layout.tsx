@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Fredoka, Inter } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/src/components/Header";
+import { Footer } from "@/src/components/Footer";
 
 const fredokaSans = Fredoka({
   variable: "--font-fredoka-sans",
@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className="scroll-smooth">
       <body
         className={`${fredokaSans.variable} ${interSans.variable} antialiased`}
       >

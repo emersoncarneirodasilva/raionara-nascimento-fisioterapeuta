@@ -1,7 +1,13 @@
 import Image from "next/image";
 import Container from "../Layout/Container";
+import fetchImagesByType from "@/src/lib/api/fetchImagesByType";
 
-export default function AboutMeSection() {
+export default async function AboutMeSection() {
+  const imagesData = await fetchImagesByType("Imagem Raionara Perfil");
+
+  const imagemRaionaraPerfil =
+    imagesData["Imagem Raionara Perfil"]?.[0] ?? null;
+
   return (
     <section className="pt-28 pb-24 bg-surface min-h-screen">
       <Container>
@@ -11,7 +17,7 @@ export default function AboutMeSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h3 className="text-2xl font-bold mb-4 text-primary">
+            <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary">
               Raionara Nascimento
             </h3>
 
@@ -36,10 +42,13 @@ export default function AboutMeSection() {
             </p>
           </div>
 
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-sm h-[440px] rounded-3xl overflow-hidden shadow-2xl">
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-md h-[500px] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/raionara-nascimento-fisioterapeuta.jpg"
+                src={
+                  imagemRaionaraPerfil?.url ??
+                  "/images/raionara-nascimento-fisioterapeuta.jpg"
+                }
                 alt="Raionara Nascimento Fisioterapeuta"
                 fill
                 className="object-cover"

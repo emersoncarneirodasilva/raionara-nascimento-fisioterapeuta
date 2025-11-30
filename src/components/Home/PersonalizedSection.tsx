@@ -1,7 +1,13 @@
 import Image from "next/image";
-import Container from "@/components/Layout/Container";
+import Container from "@/src/components/Layout/Container";
+import fetchImagesByType from "@/src/lib/api/fetchImagesByType";
 
-export default function PersonalizedSection() {
+export default async function PersonalizedSection() {
+  const imagesData = await fetchImagesByType("Imagem Fisioterapia Home");
+
+  const imagemFisiotarapiaHome =
+    imagesData["Imagem Fisioterapia Home"]?.[0] ?? null;
+
   return (
     <section className="py-24 bg-surface">
       <Container>
@@ -17,9 +23,9 @@ export default function PersonalizedSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Imagem Esquerda */}
-          <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-lg">
+          <div className="relative h-[600px] w-full rounded-3xl overflow-hidden shadow-lg">
             <Image
-              src="/images/main2.jpg"
+              src={imagemFisiotarapiaHome?.url ?? "/images/main2.jpg"}
               alt="Tratamento Fisioterapia"
               fill
               className="object-cover"

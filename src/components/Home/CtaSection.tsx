@@ -1,8 +1,9 @@
-import Container from "@/components/Layout/Container";
+import Container from "@/src/components/Layout/Container";
+import Link from "next/link";
 
 export default function CtaSection() {
   return (
-    <section className="py-24 bg-(--background)">
+    <section className="py-24 bg-background">
       <Container className="text-center max-w-3xl">
         <h2 className="text-3xl font-medium md:text-4xl text-foreground mb-6">
           Seu movimento começa com uma decisão
@@ -13,9 +14,11 @@ export default function CtaSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-          <button className="px-8 py-3 bg-button-color backdrop-blur-md border border-white/40 text-white rounded hover:opacity-80 hover:text-primary transition-all font-medium cursor-pointer">
-            Agendar uma sessão
-          </button>
+          <Link href="/servicos#servicos">
+            <button className="px-8 py-3 bg-button-color backdrop-blur-md border border-white/40 text-white rounded hover:opacity-80 hover:text-primary transition-all font-medium cursor-pointer">
+              Agendar uma sessão
+            </button>
+          </Link>
           <button className="px-8 py-3 text-primary font-normal hover:underline underline-offset-4 cursor-pointer">
             Entre em Contato
           </button>

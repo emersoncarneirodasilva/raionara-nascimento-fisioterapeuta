@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Container from "../Layout/Container";
+import fetchImagesByType from "@/src/lib/api/fetchImagesByType";
 
 const benefits = [
   "Reduzir dores e tensões",
@@ -8,7 +9,12 @@ const benefits = [
   "Aumentar a qualidade de vida",
 ];
 
-export default function CarePathSection() {
+export default async function CarePathSection() {
+  const imagesData = await fetchImagesByType("Imagem Fisioterapia Sobre");
+
+  const imagemFisioterapiaSobre =
+    imagesData["Imagem Fisioterapia Sobre"]?.[0] ?? null;
+
   return (
     <section className="py-24 bg-surface">
       <Container>
@@ -22,11 +28,11 @@ export default function CarePathSection() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-20 items-center">
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-sm h-[440px] rounded-3xl overflow-hidden shadow-2xl">
+          <div className="flex justify-center lg:justify-start">
+            <div className="relative w-full max-w-md h-[500px] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/massage.jpg"
-                alt="Raionara Nascimento Fisioterapeuta"
+                src={imagemFisioterapiaSobre?.url ?? "/images/massage.jpg"}
+                alt="Imagem de massagem terapêutica"
                 fill
                 className="object-cover"
               />

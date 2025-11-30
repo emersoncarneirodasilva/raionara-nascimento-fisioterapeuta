@@ -63,7 +63,7 @@ export function Header() {
         {/* CTA Button & Mobile Menu */}
         <div className="flex items-center gap-4">
           <Link
-            href="#agendar"
+            href="/servicos#servicos"
             className="hidden md:inline-block px-5 py-2 bg-button-color text-white backdrop-blur-md border border-white/30 rounded text-sm hover:bg-(--bg-button-color)/90 hover:scale-[1.02] transition-all duration-300"
           >
             Agendar

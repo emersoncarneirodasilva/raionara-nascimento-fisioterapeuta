@@ -1,5 +1,5 @@
-import { HomeCard } from "@/components/Card/HomeCard";
-import Container from "@/components/Layout/Container";
+import { HomeCard } from "@/src/components/Card/HomeCard";
+import Container from "@/src/components/Layout/Container";
 import { Dumbbell, Hand, Target } from "lucide-react";
 
 const servicesData = [
@@ -7,19 +7,19 @@ const servicesData = [
     icon: Hand,
     title: "Terapia Manual",
     text: "Libere dores e tensões musculares com manipulações precisas.",
-    href: "/servicos/terapia-manual",
+    href: "/sobre#modalidades_de_atendimento",
   },
   {
     icon: Dumbbell,
     title: "Reabilitação",
     text: "Planos específicos para recuperação pós-operatória.",
-    href: "/servicos/reabilitacao",
+    href: "/sobre#modalidades_de_atendimento",
   },
   {
     icon: Target,
     title: "Pilates Clínico",
     text: "Fortalecimento e controle corporal para prevenir lesões.",
-    href: "/servicos/pilates",
+    href: "/sobre#modalidades_de_atendimento",
   },
 ];
 
