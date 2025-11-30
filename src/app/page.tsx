@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Site oficial da fisioterapeuta Raionara Nascimento.",
 };
 
-export default async function Home() {
+export default async function HomePage() {
   return (
     <main className="flex flex-col min-h-screen">
       <HeroSection />

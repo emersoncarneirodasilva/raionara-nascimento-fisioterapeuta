@@ -17,7 +17,7 @@ export default async function AboutMeSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary">
+            <h3 className="text-xl md:text-2xl font-bold mb-4 text-(--text-black)">
               Raionara Nascimento
             </h3>
 

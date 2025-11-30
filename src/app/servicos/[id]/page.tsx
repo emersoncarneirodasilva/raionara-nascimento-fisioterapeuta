@@ -1,12 +1,19 @@
 import Container from "@/src/components/Layout/Container";
 import ServiceCard from "@/src/components/Services/ServiceCard";
 import fetchServiceById from "@/src/lib/api/fetchServiceById";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Raionara Nascimento - Fisioterapeuta - Serviço",
+  description:
+    "Página de informações de serviço oferecido pela fisioterapeuta Raionara Nascimento.",
+};
 
 interface Params {
   id: string;
 }
 
-export default async function ServicoPage({
+export default async function ServicePage({
   params,
 }: {
   params: Promise<Params>;

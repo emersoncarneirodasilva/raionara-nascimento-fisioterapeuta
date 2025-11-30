@@ -42,7 +42,10 @@ export function Footer() {
             >
               Serviços
             </Link>
-            <Link href="#" className=" hover:underline transition-colors">
+            <Link
+              href="/contato"
+              className=" hover:underline transition-colors"
+            >
               Contato
             </Link>
             <Link href="#" className=" hover:underline transition-colors">

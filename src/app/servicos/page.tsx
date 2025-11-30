@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import HeroSection from "@/src/components/Services/HeroSection";
 import ServicesSection from "@/src/components/Services/ServicesSection";
 import CtaSection from "@/src/components/Services/CtaSection";
+import ScrollToHash from "@/src/utils/ScrollToHash";
 
 export const metadata: Metadata = {
   title: "Raionara Nascimento - Fisioterapeuta - Serviços",
@@ -9,12 +10,15 @@ export const metadata: Metadata = {
     "Página de serviços oferecidos pela fisioterapeuta Raionara Nascimento.",
 };
 
-export default function ServicosPage() {
+export default function ServicesPage() {
   return (
-    <main className="flex flex-col min-h-screen">
-      <HeroSection />
-      <ServicesSection />
-      <CtaSection />
-    </main>
+    <>
+      <ScrollToHash />
+      <main className="flex flex-col min-h-screen">
+        <HeroSection />
+        <ServicesSection />
+        <CtaSection />
+      </main>
+    </>
   );
 }

@@ -47,7 +47,7 @@ export function Header() {
             Serviços
           </Link>
           <Link
-            href="#contato"
+            href="/contato"
             className="hover:text-(--color-secondary-hover) transition-colors"
           >
             Contato

@@ -36,9 +36,15 @@ export default async function HeroSection() {
               Agende agora
             </button>
           </Link>
-          <button className="px-8 py-3 text-black font-normal hover:underline underline-offset-4 cursor-pointer">
-            Entre em Contato
-          </button>
+          <a
+            href="https://wa.me/5584988041681"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="px-8 py-3 text-black font-normal hover:underline underline-offset-4 cursor-pointer">
+              Entre em Contato
+            </button>
+          </a>
         </div>
       </Container>
     </section>

@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-/* =================================================================
-    VARIÁVEIS DE COR (Referência à Imagem de Seleção)
-================================================================= */
-
 /* ===========================
     LIGHT THEME (padrão)
 =========================== */
@@ -50,7 +46,9 @@
   --text-black: #efefef;
 }
 
-/* === TIPOGRAFIA GLOBAL === */
+/* ===========================
+    TIPOGRAFIA GLOBAL
+=========================== */
 h1,
 h2 {
   font-family: var(--font-fredoka-sans), sans-serif;
@@ -75,7 +73,6 @@ body {
 /* ===========================
     UTILITÁRIAS (Ajustado para novas variáveis)
 =========================== */
-
 .bg-primary {
   background-color: var(--color-primary);
 }

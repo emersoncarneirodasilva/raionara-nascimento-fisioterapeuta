@@ -6,6 +6,7 @@ import ExpertiseSection from "@/src/components/About/ExpertiseSection";
 import HighlightBlockSection from "@/src/components/About/HighlightBlockSection";
 import HowItWorksSection from "@/src/components/About/HowItWorksSection";
 import ServiceModalitiesSection from "@/src/components/About/ServiceModalitiesSection";
+import ScrollToHash from "@/src/utils/ScrollToHash";
 
 export const metadata: Metadata = {
   title: "Raionara Nascimento - Fisioterapeuta - Sobre",
@@ -14,14 +15,17 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="flex flex-col min-h-screen">
-      <AboutMeSection />
-      <DifferencesSection />
-      <CarePathSection />
-      <ServiceModalitiesSection />
-      <HowItWorksSection />
-      <ExpertiseSection />
-      <HighlightBlockSection />
-    </main>
+    <>
+      <ScrollToHash />
+      <main className="flex flex-col min-h-screen">
+        <AboutMeSection />
+        <DifferencesSection />
+        <CarePathSection />
+        <ServiceModalitiesSection />
+        <HowItWorksSection />
+        <ExpertiseSection />
+        <HighlightBlockSection />
+      </main>
+    </>
   );
 }
