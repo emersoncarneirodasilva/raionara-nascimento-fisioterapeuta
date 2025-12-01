@@ -1,3 +1,3 @@
 export default async function LoginPage() {
-  return <h1>Página de login sem herdar o layout principal.</h1>;
+  return <h1>OBS: Lembrar de criar a página de error.</h1>;
 }
