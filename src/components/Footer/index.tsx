@@ -48,7 +48,7 @@ export function Footer() {
             >
               Contato
             </Link>
-            <Link href="#" className=" hover:underline transition-colors">
+            <Link href="/login" className=" hover:underline transition-colors">
               Entrar
             </Link>
           </nav>

@@ -59,7 +59,10 @@ export function Header() {
             >
               Contato
             </Link>
-            <Link href="#" className="hover:text-(--color-secondary-hover)">
+            <Link
+              href="/login"
+              className="hover:text-(--color-secondary-hover)"
+            >
               Entrar
             </Link>
           </nav>

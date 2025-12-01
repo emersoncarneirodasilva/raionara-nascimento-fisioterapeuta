@@ -1,8 +1,5 @@
-import type { Metadata } from "next";
-import { Fredoka, Inter } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/src/components/Header";
-import { Footer } from "@/src/components/Footer";
+import { Fredoka, Inter } from "next/font/google";
 
 const fredokaSans = Fredoka({
   variable: "--font-fredoka-sans",
@@ -14,11 +11,6 @@ const interSans = Inter({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Raionara Nascimento - Fisioterapeuta",
-  description: "Site oficial da fisioterapeuta Raionara Nascimento.",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,9 +21,7 @@ export default function RootLayout({
       <body
         className={`${fredokaSans.variable} ${interSans.variable} antialiased`}
       >
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );
