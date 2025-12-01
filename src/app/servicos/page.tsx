@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import HeroSection from "@/src/components/Services/HeroSection";
 import ServicesSection from "@/src/components/Services/ServicesSection";
 import CtaSection from "@/src/components/Services/CtaSection";
-import ScrollToHash from "@/src/utils/ScrollToHash";
+import ScrollToHash from "@/src/components/Layout/ScrollToHash";
 
 export const metadata: Metadata = {
   title: "Raionara Nascimento - Fisioterapeuta - Serviços",

@@ -2,6 +2,29 @@ import Image from "next/image";
 import Container from "@/src/components/Layout/Container";
 import fetchImagesByType from "@/src/lib/api/fetchImagesByType";
 
+const data = [
+  {
+    number: "1",
+    title: "Avaliação personalizada",
+    text: "Cada paciente é único. Iniciamos com uma avaliação detalhada.",
+  },
+  {
+    number: "2",
+    title: "Tratamento individualizado",
+    text: "Elaboro um plano que considera seu corpo e rotina.",
+  },
+  {
+    number: "3",
+    title: "Acompanhamento contínuo",
+    text: "A evolução é acompanhada de perto em cada sessão.",
+  },
+  {
+    number: "4",
+    title: "Orientações para o dia a dia",
+    text: "Exercícios para casa, garantindo resultados na rotina.",
+  },
+];
+
 export default async function PersonalizedSection() {
   const imagesData = await fetchImagesByType("Imagem Fisioterapia Home");
 
@@ -22,7 +45,6 @@ export default async function PersonalizedSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Imagem Esquerda */}
           <div className="relative h-[600px] w-full rounded-3xl overflow-hidden shadow-lg">
             <Image
               src={imagemFisiotarapiaHome?.url ?? "/images/main2.jpg"}
@@ -32,30 +54,8 @@ export default async function PersonalizedSection() {
             />
           </div>
 
-          {/* Steps Direita */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-            {[
-              {
-                number: "1",
-                title: "Avaliação personalizada",
-                text: "Cada paciente é único. Iniciamos com uma avaliação detalhada.",
-              },
-              {
-                number: "2",
-                title: "Tratamento individualizado",
-                text: "Elaboro um plano que considera seu corpo e rotina.",
-              },
-              {
-                number: "3",
-                title: "Acompanhamento contínuo",
-                text: "A evolução é acompanhada de perto em cada sessão.",
-              },
-              {
-                number: "4",
-                title: "Orientações para o dia a dia",
-                text: "Exercícios para casa, garantindo resultados na rotina.",
-              },
-            ].map((item) => (
+            {data.map((item) => (
               <div key={item.number} className="flex flex-col items-center">
                 <div className="w-14 h-14 rounded-full border-3 border-primary text-primary flex items-center justify-center text-3xl font-light mb-4">
                   {item.number}

@@ -37,7 +37,7 @@ export default function ServiceCard({
 
       <div className="mt-14 mb-8 flex justify-center">
         <a
-          href="https://wa.me/5584988041681"
+          href="https://wa.me/5584988197995"
           target="_blank"
           rel="noopener noreferrer"
           className="px-8 py-3 text-sm sm:text-base bg-button-color backdrop-blur-md border border-white/40 text-white rounded hover:opacity-80 hover:text-primary transition-all font-medium cursor-pointer"

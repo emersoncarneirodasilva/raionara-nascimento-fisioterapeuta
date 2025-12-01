@@ -37,7 +37,7 @@ export default async function HeroSection() {
             </button>
           </Link>
           <a
-            href="https://wa.me/5584988041681"
+            href="https://wa.me/5584988197995"
             target="_blank"
             rel="noopener noreferrer"
           >

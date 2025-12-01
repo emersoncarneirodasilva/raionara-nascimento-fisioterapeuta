@@ -36,7 +36,7 @@ export default async function ContactSection() {
                 <span className="font-bold text-foreground">
                   Telefone / WhatsApp:
                 </span>{" "}
-                (84) 98804-1681
+                (84) 98888-9999
               </p>
               <p>
                 <span className="font-bold text-foreground">E-mail:</span>{" "}

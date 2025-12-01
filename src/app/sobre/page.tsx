@@ -6,7 +6,7 @@ import ExpertiseSection from "@/src/components/About/ExpertiseSection";
 import HighlightBlockSection from "@/src/components/About/HighlightBlockSection";
 import HowItWorksSection from "@/src/components/About/HowItWorksSection";
 import ServiceModalitiesSection from "@/src/components/About/ServiceModalitiesSection";
-import ScrollToHash from "@/src/utils/ScrollToHash";
+import ScrollToHash from "@/src/components/Layout/ScrollToHash";
 
 export const metadata: Metadata = {
   title: "Raionara Nascimento - Fisioterapeuta - Sobre",
