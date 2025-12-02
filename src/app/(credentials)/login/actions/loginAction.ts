@@ -37,23 +37,5 @@ export async function handleLogin(formData: FormData) {
     path: "/",
   });
 
-  let salon;
-
-  try {
-    salon = await fetchSalonByUser(token);
-  } catch (err: unknown) {
-    let message = "Erro ao buscar informações do salão.";
-
-    if (err instanceof Error) {
-      message = err.message;
-    }
-
-    redirect(`/login?error=${encodeURIComponent(message)}`);
-  }
-
-  if (!salon?.slug) {
-    redirect(`/login?error=${encodeURIComponent("Salão não encontrado.")}`);
-  }
-
   redirect(`/`);
 }

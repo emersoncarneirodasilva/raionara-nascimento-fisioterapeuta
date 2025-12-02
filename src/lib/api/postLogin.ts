@@ -1,8 +1,10 @@
 export async function postLogin(email: string, password: string) {
+  const slug = "raionara-nascimento-fisioterapeuta";
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ email, password, slug }),
   });
 
   if (!res.ok) {

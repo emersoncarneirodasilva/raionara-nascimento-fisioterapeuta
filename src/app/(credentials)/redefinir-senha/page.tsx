@@ -1,3 +1,8 @@
 export default function ResetPasswordPage() {
-  return <div>Página de redefinir senha sem herdar o layout principal.</div>;
+  return (
+    <div>
+      Página de redefinir senha precisa ser dinâmica recebendo o token que vem
+      do e-mail do uduário.
+    </div>
+  );
 }
