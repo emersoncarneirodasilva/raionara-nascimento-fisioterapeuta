@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { handleLogin } from "./actions/loginAction";
 import ErrorToastFromParams from "@/src/components/Error/ErrorToastFromParams";
 import Link from "next/link";
+import SuccessToastAutoRedirect from "@/src/components/Success/SuccessToastAutoRedirect";
 
 export const metadata: Metadata = {
   title: "Raionara Nascimento - Fisioterapeuta - Login",
@@ -14,6 +15,7 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen grid grid-cols-1 lg:grid-cols-2 place-items-center">
       <ErrorToastFromParams />
+      <SuccessToastAutoRedirect />
 
       {/* Left Side - Login Form */}
       <section className="w-full flex items-center justify-center p-6 sm:p-8 bg-background">

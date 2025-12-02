@@ -49,5 +49,7 @@ export async function registerUser(formData: FormData) {
     redirect(`/cadastro?error=${encodeURIComponent(message)}`);
   }
 
-  redirect("/login");
+  redirect(
+    `/login?success=${encodeURIComponent("Cadrastro feito com sucesso!")}`
+  );
 }
