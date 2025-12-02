@@ -5,11 +5,29 @@ import Image from "next/image";
 import { Menu } from "lucide-react";
 import Container from "../Layout/Container";
 import { ThemeToggleButton } from "../Layout/ThemeToggleButton";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MobileMenu } from "../Layout/MobileMenu";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [authenticated, setAuthenticated] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    async function checkAuth() {
+      try {
+        const res = await fetch("/api/auth/status", {
+          cache: "no-store",
+        });
+
+        const data = await res.json();
+        setAuthenticated(data.authenticated);
+      } catch {
+        setAuthenticated(false);
+      }
+    }
+
+    checkAuth();
+  }, []);
 
   return (
     <>
@@ -59,12 +77,23 @@ export function Header() {
             >
               Contato
             </Link>
-            <Link
-              href="/login"
-              className="hover:text-(--color-secondary-hover)"
-            >
-              Entrar
-            </Link>
+
+            {/* troca automática */}
+            {authenticated ? (
+              <Link
+                href="/perfil"
+                className="hover:text-(--color-secondary-hover)"
+              >
+                Perfil
+              </Link>
+            ) : (
+              <Link
+                href="/login"
+                className="hover:text-(--color-secondary-hover)"
+              >
+                Entrar
+              </Link>
+            )}
           </nav>
 
           {/* CTA + Actions */}

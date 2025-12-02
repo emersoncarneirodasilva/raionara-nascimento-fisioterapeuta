@@ -23,6 +23,13 @@
 
   /* Botões */
   --bg-button-color: #99a194;
+
+  /* Estado - Sucesso / Erro */
+  --color-error: #e03131;
+  --color-error-text: #ffffff;
+
+  --color-success: #2f9e44;
+  --color-success-text: #ffffff;
 }
 
 /* ===========================
@@ -44,6 +51,13 @@
   --foreground: #eeeeee;
   --text-muted: #b9b1a9;
   --text-black: #efefef;
+
+  /* Estado - Sucesso / Erro */
+  --color-error: #ff6b6b;
+  --color-error-text: #1a1a1a;
+
+  --color-success: #51cf66;
+  --color-success-text: #1a1a1a;
 }
 
 /* ===========================
@@ -93,6 +107,22 @@ body {
   background-color: var(--bg-button-color);
 }
 
+.bg-error {
+  background-color: var(--color-error);
+}
+
+.bg-success {
+  background-color: var(--color-success);
+}
+
+.text-error {
+  color: var(--color-error);
+}
+
+.text-success {
+  color: var(--color-success);
+}
+
 .text-primary {
   color: var(--color-primary);
 }
@@ -103,4 +133,20 @@ body {
 
 .text-muted {
   color: var(--text-muted);
+}
+
+/* ===== Animações ===== */
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.35s ease-out forwards;
 }

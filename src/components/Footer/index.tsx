@@ -1,9 +1,31 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Instagram, Facebook, Mail } from "lucide-react";
 import Container from "../Layout/Container";
+import { useEffect, useState } from "react";
 
 export function Footer() {
+  const [authenticated, setAuthenticated] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    async function checkAuth() {
+      try {
+        const res = await fetch("/api/auth/status", {
+          cache: "no-store",
+        });
+
+        const data = await res.json();
+        setAuthenticated(data.authenticated);
+      } catch {
+        setAuthenticated(false);
+      }
+    }
+
+    checkAuth();
+  }, []);
+
   return (
     <footer className="bg-surface border-t border-gray-100 pt-16 pb-8">
       <Container>
@@ -48,9 +70,21 @@ export function Footer() {
             >
               Contato
             </Link>
-            <Link href="/login" className=" hover:underline transition-colors">
-              Entrar
-            </Link>
+            {authenticated ? (
+              <Link
+                href="/perfil"
+                className="hover:text-(--color-secondary-hover)"
+              >
+                Perfil
+              </Link>
+            ) : (
+              <Link
+                href="/login"
+                className="hover:text-(--color-secondary-hover)"
+              >
+                Entrar
+              </Link>
+            )}
           </nav>
         </div>
 
