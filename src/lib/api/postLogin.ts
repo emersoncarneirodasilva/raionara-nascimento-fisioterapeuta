@@ -3,7 +3,6 @@ export async function postLogin(email: string, password: string) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
-    cache: "no-store",
   });
 
   if (!res.ok) {

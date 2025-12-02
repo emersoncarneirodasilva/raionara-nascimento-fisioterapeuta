@@ -38,6 +38,7 @@ export async function handleLogin(formData: FormData) {
   });
 
   let salon;
+
   try {
     salon = await fetchSalonByUser(token);
   } catch (err: unknown) {
