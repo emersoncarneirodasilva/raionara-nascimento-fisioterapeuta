@@ -1,17 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { X } from "lucide-react";
+import { X, User, Home, Info, Briefcase, Phone, LogIn } from "lucide-react";
+import { useState, useEffect } from "react";
 
 interface MobileMenuProps {
   open: boolean;
   onClose: () => void;
+  authenticated: boolean | null;
 }
 
-export function MobileMenu({ open, onClose }: MobileMenuProps) {
+export function MobileMenu({ open, onClose, authenticated }: MobileMenuProps) {
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) setUserMenuOpen(false);
+  }, [open]);
+
+  async function handleLogout() {
+    await fetch("/api/auth/logout", { method: "POST" });
+    window.location.href = "/";
+  }
+
   return (
     <>
-      {/* Fundo escuro */}
+      {/* Fundo */}
       <div
         className={`
           fixed inset-0 bg-black/40 backdrop-blur-sm z-40
@@ -35,12 +48,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           ${open ? "translate-x-0" : "translate-x-full"}
         `}
       >
-        <button
-          onClick={onClose}
-          className="
-            mb-6 text-foreground hover:text-primary transition-colors
-          "
-        >
+        <button onClick={onClose} className="mb-6 hover:text-primary">
           <X className="w-6 h-6" />
         </button>
 
@@ -48,42 +56,93 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           <Link
             href="/"
             onClick={onClose}
-            className="hover:text-primary transition-colors"
+            className="flex items-center gap-2 hover:text-primary"
           >
-            Início
+            <Home className="w-5 h-5" /> Início
           </Link>
 
           <Link
             href="/sobre"
             onClick={onClose}
-            className="hover:text-primary transition-colors"
+            className="flex items-center gap-2 hover:text-primary"
           >
-            Sobre
+            <Info className="w-5 h-5" /> Sobre
           </Link>
 
           <Link
             href="/servicos"
             onClick={onClose}
-            className="hover:text-primary transition-colors"
+            className="flex items-center gap-2 hover:text-primary"
           >
-            Serviços
+            <Briefcase className="w-5 h-5" /> Serviços
           </Link>
 
           <Link
             href="/contato"
             onClick={onClose}
-            className="hover:text-primary transition-colors"
+            className="flex items-center gap-2 hover:text-primary"
           >
-            Contato
+            <Phone className="w-5 h-5" /> Contato
           </Link>
 
-          <Link
-            href="/"
-            onClick={onClose}
-            className="hover:text-primary transition-colors"
-          >
-            Entrar
-          </Link>
+          {!authenticated && (
+            <Link
+              href="/login"
+              onClick={onClose}
+              className="flex items-center gap-2 hover:text-primary"
+            >
+              <LogIn className="w-5 h-5" /> Entrar
+            </Link>
+          )}
+
+          {authenticated && (
+            <>
+              <button
+                onClick={() => setUserMenuOpen(!userMenuOpen)}
+                className="flex items-center gap-2 hover:text-primary"
+              >
+                <User className="w-5 h-5" /> Perfil
+              </button>
+
+              {userMenuOpen && (
+                <div className="ml-4 mt-2 flex flex-col gap-3 text-base">
+                  <Link
+                    href="/perfil"
+                    onClick={onClose}
+                    className="hover:text-primary"
+                  >
+                    Meu Perfil
+                  </Link>
+
+                  <Link
+                    href="/notificacoes"
+                    onClick={onClose}
+                    className="hover:text-primary"
+                  >
+                    Notificações
+                  </Link>
+
+                  <Link
+                    href="/agendamentos"
+                    onClick={onClose}
+                    className="hover:text-primary"
+                  >
+                    Agendamentos
+                  </Link>
+
+                  <button
+                    onClick={() => {
+                      handleLogout();
+                      onClose();
+                    }}
+                    className="text-left text-(--color-error) hover:bg-(--color-error)/10"
+                  >
+                    Sair
+                  </button>
+                </div>
+              )}
+            </>
+          )}
         </nav>
       </aside>
     </>

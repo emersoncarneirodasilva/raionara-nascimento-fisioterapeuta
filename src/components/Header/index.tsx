@@ -7,6 +7,7 @@ import Container from "../Layout/Container";
 import { ThemeToggleButton } from "../Layout/ThemeToggleButton";
 import { useState, useEffect } from "react";
 import { MobileMenu } from "../Layout/MobileMenu";
+import UserMenu from "./UserMenu";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -80,12 +81,7 @@ export function Header() {
 
             {/* troca automática */}
             {authenticated ? (
-              <Link
-                href="/perfil"
-                className="hover:text-(--color-secondary-hover)"
-              >
-                Perfil
-              </Link>
+              <UserMenu />
             ) : (
               <Link
                 href="/login"
@@ -120,7 +116,11 @@ export function Header() {
       </header>
 
       {/* Mobile Menu Overlay */}
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <MobileMenu
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        authenticated={authenticated}
+      />
     </>
   );
 }

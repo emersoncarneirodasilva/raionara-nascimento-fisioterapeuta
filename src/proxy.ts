@@ -3,7 +3,7 @@ import { type NextRequest, NextResponse } from "next/server";
 export const proxy = (request: NextRequest) => {
   const token = request.cookies.get("user_token")?.value;
 
-  const protectedRoutes = ["/perfil"];
+  const protectedRoutes = ["/perfil", "/notificacoes", "/agendamentos"];
   const { pathname } = request.nextUrl;
 
   const isProtected = protectedRoutes.some((route) =>
@@ -19,7 +19,7 @@ export const proxy = (request: NextRequest) => {
   return NextResponse.next();
 };
 
-// Configuração de matching igual ao middleware antigo
+// Configuração de matching
 export const config = {
-  matcher: ["/perfil/:path*"],
+  matcher: ["/perfil/:path*", "/notificacoes/:path*", "/agendamentos/:path*"],
 };
