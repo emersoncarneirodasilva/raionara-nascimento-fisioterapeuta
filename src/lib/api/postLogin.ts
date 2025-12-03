@@ -1,5 +1,5 @@
 export async function postLogin(email: string, password: string) {
-  const slug = "raionara-nascimento-fisioterapeuta";
+  const slug = process.env.NEXT_PUBLIC_SLUG;
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
     method: "POST",

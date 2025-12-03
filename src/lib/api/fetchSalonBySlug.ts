@@ -1,5 +1,5 @@
 export async function fetchSalonBySlug() {
-  const slug = "raionara-nascimento-fisioterapeuta";
+  const slug = process.env.NEXT_PUBLIC_SLUG;
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/salons/${slug}`, {
     method: "GET",

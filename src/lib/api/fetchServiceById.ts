@@ -8,7 +8,7 @@ interface ServiceSummary {
 export default async function fetchServiceById(
   serviceId: string
 ): Promise<ServiceSummary> {
-  const slug = "raionara-nascimento-fisioterapeuta";
+  const slug = process.env.NEXT_PUBLIC_SLUG;
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/services/public/${slug}/${serviceId}`,

@@ -1,6 +1,5 @@
 "use server";
 
-import { fetchSalonByUser } from "@/src/lib/api/fetchSalonByUser";
 import { postLogin } from "@/src/lib/api/postLogin";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";

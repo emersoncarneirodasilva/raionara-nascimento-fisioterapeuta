@@ -21,7 +21,7 @@ export default async function RegisterPage() {
         <article className="w-full max-w-md sm:max-w-lg">
           <header>
             <h1 className="text-4xl sm:text-5xl text-center text-foreground font-medium mb-4">
-              CADASTRO
+              Cadastro
             </h1>
             <p className="mb-6 sm:mb-8 text-center text-muted text-sm sm:text-base">
               Para agendar suas sessões, crie sua conta preenchendo os campos

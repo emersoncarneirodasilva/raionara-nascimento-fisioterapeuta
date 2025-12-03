@@ -1,8 +1,8 @@
 export default function ResetPasswordPage() {
   return (
-    <div>
+    <h1>
       Página de redefinir senha precisa ser dinâmica recebendo o token que vem
       do e-mail do uduário.
-    </div>
+    </h1>
   );
 }

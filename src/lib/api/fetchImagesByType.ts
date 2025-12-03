@@ -13,7 +13,7 @@ export type ImagesByTypeResponse = Record<string, ImageItem[]>;
 export default async function fetchImagesByType(
   type: string
 ): Promise<ImagesByTypeResponse> {
-  const slug = "raionara-nascimento-fisioterapeuta";
+  const slug = process.env.NEXT_PUBLIC_SLUG;
 
   const res = await fetch(
     `${
