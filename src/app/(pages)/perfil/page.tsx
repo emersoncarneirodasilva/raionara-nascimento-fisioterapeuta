@@ -3,6 +3,7 @@ import Link from "next/link";
 import Container from "@/src/components/Layout/Container";
 import fetchMyProfile, { UserProfile } from "@/src/lib/api/fetchMyProfile";
 import { cookies } from "next/headers";
+import SuccessToastAutoRedirectProfile from "@/src/components/Success/SuccessToastAutoRedirectProfile";
 
 export const metadata: Metadata = {
   title: "Raionara Nascimento - Perfil do Usuário",
@@ -21,6 +22,8 @@ export default async function ProfilePage() {
 
   return (
     <section className="pt-28 pb-24 bg-background min-h-screen">
+      <SuccessToastAutoRedirectProfile />
+
       <Container>
         <h1 className="text-3xl text-center font-medium md:text-4xl mb-16 text-foreground">
           Perfil
@@ -58,7 +61,7 @@ export default async function ProfilePage() {
           {/* Botão Editar */}
           <div className="flex justify-center pt-6">
             <Link
-              href="/perfil/editar"
+              href={`/perfil/editar/`}
               className="px-8 py-2 bg-button-color backdrop-blur-md border border-white/40 text-white rounded hover:opacity-80 hover:text-primary transition-all font-medium cursor-pointer duration-300"
             >
               Editar
