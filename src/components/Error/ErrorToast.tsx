@@ -18,7 +18,7 @@ export default function ErrorToast({ message }: ErrorToastProps) {
   if (!show) return null;
 
   return (
-    <div className="fixed top-6 right-6 z-50 animate-slide-in">
+    <div className="fixed top-20 right-5 z-50 animate-slide-in">
       <div className="flex items-center gap-3 bg-error text-white px-4 py-3 rounded-lg shadow-lg">
         <XCircle className="w-6 h-6" />
         <span>{message}</span>

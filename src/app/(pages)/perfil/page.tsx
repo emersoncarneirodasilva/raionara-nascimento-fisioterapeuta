@@ -3,7 +3,7 @@ import Link from "next/link";
 import Container from "@/src/components/Layout/Container";
 import fetchMyProfile, { UserProfile } from "@/src/lib/api/fetchMyProfile";
 import { cookies } from "next/headers";
-import SuccessToastAutoRedirectProfile from "@/src/components/Success/SuccessToastAutoRedirectProfile";
+import SuccessToastAutoRedirect from "@/src/components/Success/SuccessToastAutoRedirect";
 
 export const metadata: Metadata = {
   title: "Raionara Nascimento - Perfil do Usuário",
@@ -22,7 +22,7 @@ export default async function ProfilePage() {
 
   return (
     <section className="pt-28 pb-24 bg-background min-h-screen">
-      <SuccessToastAutoRedirectProfile />
+      <SuccessToastAutoRedirect href="/perfil" />
 
       <Container>
         <h1 className="text-3xl text-center font-medium md:text-4xl mb-16 text-foreground">
