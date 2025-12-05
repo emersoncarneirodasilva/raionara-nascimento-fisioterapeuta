@@ -24,25 +24,37 @@ export interface UserNotification {
 export interface NotificationsResponse {
   message: string;
   notifications: UserNotification[];
+  totalCount: number;
 }
 
 export default async function fetchMyNotifications(
-  token: string
+  token: string,
+  options?: {
+    page?: number;
+    limit?: number;
+    search?: string;
+    isRead?: boolean;
+  }
 ): Promise<NotificationsResponse> {
+  const query = new URLSearchParams();
+
+  if (options?.page) query.set("page", String(options.page));
+  if (options?.limit) query.set("limit", String(options.limit));
+  if (options?.search) query.set("search", options.search);
+  if (typeof options?.isRead === "boolean")
+    query.set("isRead", String(options.isRead));
+
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/notifications/me`,
+    `${process.env.NEXT_PUBLIC_API_URL}/notifications/me?${query.toString()}`,
     {
-      method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      cache: "no-cache",
+      cache: "no-store",
     }
   );
 
-  if (!res.ok) {
-    throw new Error("Erro ao buscar notificações");
-  }
+  if (!res.ok) throw new Error("Falha ao buscar notificações.");
 
   return res.json();
 }
