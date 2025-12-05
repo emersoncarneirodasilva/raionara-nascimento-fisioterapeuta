@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 import SuccessToastAutoRedirect from "@/src/components/Success/SuccessToastAutoRedirect";
 
 export const metadata: Metadata = {
-  title: "Raionara Nascimento - Perfil do Usuário",
+  title: "Raionara Nascimento - Fisioterapeuta - Perfil do Usuário",
   description: "Página de perfil do usuário.",
 };
 

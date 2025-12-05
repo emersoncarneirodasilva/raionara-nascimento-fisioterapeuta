@@ -3,6 +3,12 @@ import fetchMyProfile, { UserProfile } from "@/src/lib/api/fetchMyProfile";
 import { cookies } from "next/headers";
 import { updateUserAction } from "./actions/updateUserAction";
 import ErrorToastFromParams from "@/src/components/Error/ErrorToastFromParams";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Raionara Nascimento - Fisioterapeuta - Editar Perfil do Usuário",
+  description: "Página de edição do perfil do usuário.",
+};
 
 export default async function EditProfilePage() {
   const cookieStore = await cookies();
