@@ -3,7 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Check } from "lucide-react";
-import { UserNotification } from "@/src/lib/api/fetchMyNotifications";
+import {
+  UserNotification,
+  statusTextMap,
+} from "@/src/lib/api/fetchMyNotifications";
 import { formatHours } from "@/src/utils/formatHours";
 
 export default function NotificationCard({
@@ -22,12 +25,9 @@ export default function NotificationCard({
         method: "PATCH",
       });
 
-      if (!res.ok) {
-        throw new Error("Erro ao marcar como lida");
-      }
+      if (!res.ok) throw new Error("Erro ao marcar como lida");
     } catch (err) {
       console.error("Erro ao marcar como lida:", err);
-
       setIsRead(false);
     }
   }
@@ -43,7 +43,7 @@ export default function NotificationCard({
         {notification.message}
       </p>
 
-      {/* Data */}
+      {/* Data de recebimento */}
       <p className="text-sm text-muted-foreground">
         Recebida em:{" "}
         {new Date(notification.createdAt).toLocaleString("pt-BR", {
@@ -52,19 +52,13 @@ export default function NotificationCard({
         })}
       </p>
 
-      {/* Informações do agendamento */}
+      {/* Informações do agendamento ou snapshot */}
       {appointment && (
         <div className="pt-4 space-y-3 border-t border-border">
           <p className="text-sm">
             <span className="text-muted-foreground">Status: </span>
             <span className="font-medium">
-              {appointment.status === "PENDING"
-                ? "Aguardando confirmação"
-                : appointment.status === "CONFIRMED"
-                ? "Confirmado"
-                : appointment.status === "CANCELED"
-                ? "Cancelado"
-                : appointment.status}
+              {statusTextMap[appointment.status] || appointment.status}
             </span>
           </p>
 
@@ -81,7 +75,6 @@ export default function NotificationCard({
                 <span className="text-muted-foreground">Serviço: </span>
                 <span className="font-medium">{s.service.name}</span>
               </p>
-
               <p>
                 <span className="text-muted-foreground">Profissional: </span>
                 <span className="font-medium">{s.professional.name}</span>
@@ -93,7 +86,6 @@ export default function NotificationCard({
 
       {/* Rodapé do card */}
       <div className="flex items-center justify-between pt-3 border-t border-border">
-        {/* Link para ver agendamentos */}
         {appointment && (
           <Link
             href={`/agendamentos`}
@@ -103,7 +95,6 @@ export default function NotificationCard({
           </Link>
         )}
 
-        {/* Status visual: já lida ou checkbox */}
         {isRead ? (
           <div className="flex items-center gap-2 text-green-600 font-medium">
             <Check className="h-5 w-5" />
