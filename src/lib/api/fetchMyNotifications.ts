@@ -1,3 +1,5 @@
+import { mapNotification } from "@/src/utils/notificationMapper";
+
 export interface NotificationServiceInfo {
   service: { name: string };
   professional: { name: string };
@@ -23,60 +25,6 @@ export interface NotificationsResponse {
   totalCount: number;
 }
 
-/**
- * Mapeia a notificação do backend para UserNotification
- * Usa `appointment` se existir, ou fallback para `snapshot`
- */
-function mapNotification(raw: any): UserNotification {
-  let appointment: NotificationAppointment | null = null;
-
-  if (raw.appointment) {
-    // Pegamos os dados diretamente do agendamento
-    appointment = {
-      status: raw.appointment.status,
-      scheduledAt: raw.appointment.scheduledAt,
-      services:
-        raw.appointment.services?.map((s: any) => ({
-          service: { name: s.service?.name || "Desconhecido" },
-          professional: { name: s.professional?.name || "Desconhecido" },
-        })) || [],
-    };
-  } else if (raw.snapshot?.data) {
-    // Pegamos os dados do snapshot
-    const data = raw.snapshot.data;
-    appointment = {
-      status: data.afterStatus ?? data.beforeStatus,
-      scheduledAt: data.afterScheduledAt ?? data.beforeScheduledAt,
-      services:
-        data.services?.map((s: any) => ({
-          service: { name: s.serviceName || "Desconhecido" },
-          professional: { name: s.professionalName || "Desconhecido" },
-        })) || [],
-    };
-  }
-
-  return {
-    id: raw.id,
-    message: raw.message,
-    isRead: raw.isRead,
-    createdAt: raw.createdAt,
-    appointment,
-  };
-}
-
-/**
- * Mapa de status para exibição no frontend
- */
-export const statusTextMap: Record<string, string> = {
-  PENDING: "Aguardando confirmação",
-  CONFIRMED: "Confirmado",
-  CANCELED: "Cancelado",
-  COMPLETED: "Concluído",
-};
-
-/**
- * Busca notificações do usuário
- */
 export default async function fetchMyNotifications(
   token: string,
   options?: {

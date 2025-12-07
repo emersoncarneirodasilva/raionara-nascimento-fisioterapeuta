@@ -3,11 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Check } from "lucide-react";
-import {
-  UserNotification,
-  statusTextMap,
-} from "@/src/lib/api/fetchMyNotifications";
+import { UserNotification } from "@/src/lib/api/fetchMyNotifications";
 import { formatHours } from "@/src/utils/formatHours";
+import { statusTextMap } from "@/src/utils/notificationStatus";
 
 export default function NotificationCard({
   notification,
