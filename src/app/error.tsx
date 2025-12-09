@@ -2,11 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-
-interface ErrorProps {
-  error: Error;
-  reset: () => void;
-}
+import { ErrorProps } from "../interfaces";
 
 export default function ErrorPage({ error, reset }: ErrorProps) {
   useEffect(() => {

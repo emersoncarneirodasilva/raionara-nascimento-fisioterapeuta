@@ -1,11 +1,4 @@
-import { LucideIcon } from "lucide-react";
-
-interface AboutCardProps {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  items: string[];
-}
+import { AboutCardProps } from "@/src/interfaces";
 
 export default function AboutCard({
   icon: Icon,

@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/src/components/Layout/Container";
-import fetchMyProfile, { UserProfile } from "@/src/lib/api/fetchMyProfile";
+import fetchMyProfile from "@/src/lib/api/fetchMyProfile";
 import { cookies } from "next/headers";
 import SuccessToastAutoRedirect from "@/src/components/Success/SuccessToastAutoRedirect";
+import { UserProfile } from "@/src/interfaces";
 
 export const metadata: Metadata = {
   title: "Raionara Nascimento - Fisioterapeuta - Perfil do Usuário",

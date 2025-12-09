@@ -1,9 +1,4 @@
-export interface PublicService {
-  id: string;
-  name: string;
-  description: string;
-  imageUrl: string | null;
-}
+import { PublicService } from "@/src/interfaces";
 
 export default async function fetchServices(
   professionalId: string

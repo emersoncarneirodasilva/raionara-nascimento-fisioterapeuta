@@ -1,12 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, LucideIcon } from "lucide-react";
-
-type HomeCardProps = {
-  icon: LucideIcon;
-  title: string;
-  text: string;
-  href: string;
-};
+import { ArrowRight } from "lucide-react";
+import { HomeCardProps } from "@/src/interfaces";
 
 export function HomeCard({ icon: Icon, title, text, href }: HomeCardProps) {
   return (

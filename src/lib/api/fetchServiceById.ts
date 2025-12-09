@@ -1,9 +1,4 @@
-interface ServiceSummary {
-  name: string;
-  description: string;
-  duration: number;
-  imageUrl: string;
-}
+import { ServiceSummary } from "@/src/interfaces";
 
 export default async function fetchServiceById(
   serviceId: string

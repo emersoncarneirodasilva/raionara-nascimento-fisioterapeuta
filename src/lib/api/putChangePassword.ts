@@ -1,11 +1,8 @@
-export interface ChangePasswordDTO {
-  oldPassword: string;
-  newPassword: string;
-}
+import { ChangePassword } from "@/src/interfaces";
 
 export default async function putChangePassword(
   token: string,
-  data: ChangePasswordDTO
+  data: ChangePassword
 ) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/users/change-password`,

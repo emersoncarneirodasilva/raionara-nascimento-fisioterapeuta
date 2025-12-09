@@ -1,4 +1,4 @@
-import { BusinessHour } from "../lib/api/fetchBusinessHours";
+import { BusinessHour } from "../interfaces";
 import { weekDaysMap } from "./weekdayMap";
 
 export function formatBusinessHours(businessHours: BusinessHour[]) {

@@ -1,11 +1,5 @@
+import { ServiceCardProps } from "@/src/interfaces";
 import Image from "next/image";
-
-interface ServiceCardProps {
-  name: string;
-  duration: number;
-  description: string;
-  imageUrl: string;
-}
 
 export default function ServiceCard({
   name,

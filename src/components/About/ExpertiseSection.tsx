@@ -1,6 +1,5 @@
 import AboutCard from "../Card/AboutCard";
 import Container from "../Layout/Container";
-
 import { HeartHandshake, Brain, Bone, Layers } from "lucide-react";
 
 const areas = [

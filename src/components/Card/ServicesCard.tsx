@@ -1,12 +1,6 @@
+import { ServicesCardProps } from "@/src/interfaces";
 import Image from "next/image";
 import Link from "next/link";
-
-interface ServicesCardProps {
-  id: string;
-  image: string;
-  title: string;
-  description: string;
-}
 
 export default function ServicesCard({
   id,

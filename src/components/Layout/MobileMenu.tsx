@@ -3,12 +3,7 @@
 import Link from "next/link";
 import { X, User, Home, Info, Briefcase, Phone, LogIn } from "lucide-react";
 import { useState, useEffect } from "react";
-
-interface MobileMenuProps {
-  open: boolean;
-  onClose: () => void;
-  authenticated: boolean | null;
-}
+import { MobileMenuProps } from "@/src/interfaces";
 
 export function MobileMenu({ open, onClose, authenticated }: MobileMenuProps) {
   const [userMenuOpen, setUserMenuOpen] = useState(false);

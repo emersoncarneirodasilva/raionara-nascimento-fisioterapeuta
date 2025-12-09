@@ -7,24 +7,7 @@ import {
   PAYMENT_STATUS_LABELS,
   STATUS_STYLES,
 } from "@/src/constants/labels";
-
-interface AppointmentCardProps {
-  appointment: {
-    id: string;
-    status: string;
-    scheduledAt: string;
-    services: {
-      service: {
-        name: string;
-        duration: number;
-      };
-    }[];
-    payment?: {
-      method: string;
-      status: string;
-    } | null;
-  };
-}
+import { AppointmentCardProps } from "@/src/interfaces";
 
 export default function AppointmentCard({ appointment }: AppointmentCardProps) {
   const serviceItem = appointment.services[0];

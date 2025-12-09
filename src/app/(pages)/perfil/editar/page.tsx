@@ -1,9 +1,10 @@
 import Container from "@/src/components/Layout/Container";
-import fetchMyProfile, { UserProfile } from "@/src/lib/api/fetchMyProfile";
+import fetchMyProfile from "@/src/lib/api/fetchMyProfile";
 import { cookies } from "next/headers";
 import { updateUserAction } from "./actions/updateUserAction";
 import ErrorToastFromParams from "@/src/components/Error/ErrorToastFromParams";
 import { Metadata } from "next";
+import { UserProfile } from "@/src/interfaces";
 
 export const metadata: Metadata = {
   title: "Raionara Nascimento - Fisioterapeuta - Editar Perfil do Usuário",

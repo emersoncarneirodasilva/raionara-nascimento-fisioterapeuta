@@ -1,17 +1,4 @@
-export interface Professional {
-  id: string;
-  name: string;
-  email: string;
-  bio: string;
-  avatarUrl: string | null;
-}
-
-export interface ProfessionalsResponse {
-  total: number;
-  totalPages: number;
-  currentPage: number;
-  professionals: Professional[];
-}
+import { ProfessionalsResponse } from "@/src/interfaces";
 
 export default async function fetchProfessionals(): Promise<ProfessionalsResponse> {
   const slug = process.env.NEXT_PUBLIC_SLUG;
