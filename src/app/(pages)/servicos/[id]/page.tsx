@@ -1,7 +1,9 @@
+import ActionButton from "@/src/components/Buttons/ActionButton";
 import Container from "@/src/components/Layout/Container";
 import ServiceCard from "@/src/components/Services/ServiceCard";
 import fetchServiceById from "@/src/lib/api/fetchServiceById";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Raionara Nascimento - Fisioterapeuta - Serviço",
@@ -36,6 +38,14 @@ export default async function ServicePage({
             description={serviceData.description}
             imageUrl={serviceData.imageUrl}
           />
+
+          <div className="mt-8 text-start">
+            <ActionButton
+              href="/servicos"
+              text="← Voltar"
+              className="inline-flex items-start gap-2 text-sm font-medium text-muted hover:text-primary hover:underline transition-all duration-200 cursor-pointer"
+            />
+          </div>
         </Container>
       </section>
     </main>

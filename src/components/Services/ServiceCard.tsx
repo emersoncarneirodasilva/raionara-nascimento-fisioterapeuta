@@ -24,7 +24,7 @@ export default function ServiceCard({
 
       <div className="mt-6">
         <h3 className="font-bold text-(--text-black) mb-2">Benefícios:</h3>
-        <ul className="list-disc ml-6 space-y-1 text-(--text-black)">
+        <ul className="list-disc space-y-1 text-(--text-black)">
           {description}
         </ul>
       </div>

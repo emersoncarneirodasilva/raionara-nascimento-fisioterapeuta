@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import ErrorToastFromParams from "@/src/components/Error/ErrorToastFromParams";
 import Link from "next/link";
 import { registerUser } from "./actions/registerAction";
+import FormActionButton from "@/src/components/Buttons/FormActionButton";
 
 export const metadata: Metadata = {
   title: "Raionara Nascimento - Fisioterapeuta - Cadastro",
@@ -106,15 +107,14 @@ export default async function RegisterPage() {
             </div>
 
             {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full py-3 sm:py-4 bg-button-color text-white rounded border border-white/40 hover:opacity-80 hover:bg-primary hover:text-white transition-all font-medium cursor-pointer"
-            >
-              Criar Conta
-            </button>
+            <FormActionButton
+              text="Criar Conta"
+              loadingText="Criando..."
+              className="w-full py-3 sm:py-4 bg-button-color text-white rounded border border-white/40 hover:opacity-80 hover:bg-primary transition-all font-medium cursor-pointer"
+            />
           </form>
 
-          {/* Links fora do form */}
+          {/* Links */}
           <div className="mt-4 sm:mt-6 text-center text-sm text-muted">
             Já possui uma conta?{" "}
             <Link

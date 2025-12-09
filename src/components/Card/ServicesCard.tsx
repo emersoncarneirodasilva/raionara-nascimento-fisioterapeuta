@@ -1,6 +1,7 @@
 import { ServicesCardProps } from "@/src/interfaces";
 import Image from "next/image";
 import Link from "next/link";
+import ActionButton from "../Buttons/ActionButton";
 
 export default function ServicesCard({
   id,
@@ -26,11 +27,11 @@ export default function ServicesCard({
         </p>
       </div>
 
-      <Link href={`/servicos/${id}`}>
-        <button className="w-fit self-center mt-6 px-6 py-2 border-2 rounded-lg text-sm text-primary font-medium hover:scale-[1.02] cursor-pointer transition-all duration-300">
-          Agendar
-        </button>
-      </Link>
+      <ActionButton
+        href={`/servicos/${id}`}
+        text="Agendar"
+        className="w-fit self-center mt-6 px-6 py-2 border-2 rounded-lg text-sm text-primary font-medium hover:scale-[1.02] cursor-pointer transition-all duration-300"
+      />
     </div>
   );
 }

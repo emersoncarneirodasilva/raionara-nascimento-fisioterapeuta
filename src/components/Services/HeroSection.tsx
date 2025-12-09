@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Container from "../Layout/Container";
-import Link from "next/link";
 import fetchImagesByType from "@/src/lib/api/fetchImagesByType";
+import ActionButton from "../Buttons/ActionButton";
 
 export default async function HeroSection() {
   const imagesData = await fetchImagesByType("Imagem Fisioterapia Serviços");
@@ -37,11 +37,11 @@ export default async function HeroSection() {
               você.
             </p>
 
-            <Link href="/servicos#servicos">
-              <button className="px-8 py-3 bg-button-color backdrop-blur-md border border-white/40 text-white rounded hover:opacity-80 hover:text-primary transition-all font-medium cursor-pointer">
-                Ver serviços
-              </button>
-            </Link>
+            <ActionButton
+              href="/servicos#servicos"
+              text="Ver serviços"
+              className="px-8 py-3 bg-button-color backdrop-blur-md border border-white/40 text-white rounded hover:opacity-80 hover:text-primary transition-all font-medium cursor-pointer"
+            />
           </div>
         </div>
       </Container>

@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { Mail } from "lucide-react";
 import ErrorToastFromParams from "@/src/components/Error/ErrorToastFromParams";
 import { handleForgotPassword } from "./actions/forgotAction";
+import FormActionButton from "@/src/components/Buttons/FormActionButton";
 
 export const metadata: Metadata = {
   title: "Recuperar sua senha - Raionara Nascimento",
@@ -49,15 +50,14 @@ export default function ForgotPasswordPage() {
             </div>
 
             {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full py-3 sm:py-4 bg-button-color text-white rounded border border-white/40 hover:opacity-80 hover:bg-primary hover:text-white transition-all font-medium cursor-pointer"
-            >
-              Enviar link de redefinição
-            </button>
+            <FormActionButton
+              text="Enviar link de redefinição"
+              loadingText="Enviando..."
+              className="w-full py-3 sm:py-4 bg-button-color text-white rounded border border-white/40 hover:opacity-80 hover:bg-primary transition-all font-medium cursor-pointer"
+            />
           </form>
 
-          {/* Links fora do form */}
+          {/* Links */}
           <div className="mt-4 sm:mt-6 text-right text-sm">
             <Link
               href="/login"

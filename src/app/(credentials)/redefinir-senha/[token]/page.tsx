@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { Lock, ShieldCheck } from "lucide-react";
 import ErrorToastFromParams from "@/src/components/Error/ErrorToastFromParams";
 import { resetPasswordAction } from "./actions/resetPasswordAction";
+import FormActionButton from "@/src/components/Buttons/FormActionButton";
 
 export const metadata: Metadata = {
   title: "Redefinir sua senha - Raionara Nascimento",
@@ -82,12 +83,11 @@ export default async function ResetPasswordPage({
             </div>
 
             {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full py-3 sm:py-4 bg-button-color text-white rounded border border-white/40 hover:opacity-80 hover:bg-primary hover:text-white transition-all font-medium cursor-pointer"
-            >
-              Redefinir senha
-            </button>
+            <FormActionButton
+              text="Redefinir senha"
+              loadingText="Redefinindo..."
+              className="w-full py-3 sm:py-4 bg-button-color text-white rounded border border-white/40 hover:opacity-80 hover:bg-primary transition-all font-medium cursor-pointer"
+            />
           </form>
 
           {/* Links */}
