@@ -1,13 +1,7 @@
 "use client";
 
 import { useFormStatus } from "react-dom";
-import { ReactNode } from "react";
-
-interface FormActionButtonProps {
-  text: string | ReactNode;
-  loadingText?: string | ReactNode;
-  className?: string;
-}
+import { FormActionButtonProps } from "@/src/interfaces";
 
 export default function FormActionButton({
   text,

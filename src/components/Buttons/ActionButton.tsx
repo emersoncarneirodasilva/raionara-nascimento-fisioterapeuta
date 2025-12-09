@@ -1,12 +1,7 @@
 "use client";
 
-import { ReactNode, useState } from "react";
-
-interface ActionButtonProps {
-  href: string; // '#servicos' ou '/servicos#servicos'
-  text: string | ReactNode;
-  className?: string;
-}
+import { ActionButtonProps } from "@/src/interfaces";
+import { useState } from "react";
 
 export default function ActionButton({
   href,
