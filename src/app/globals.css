@@ -30,6 +30,11 @@
 
   --color-success: #2f9e44;
   --color-success-text: #ffffff;
+
+  /* Header / Links */
+  --header-link: rgba(25, 25, 25, 0.75);
+  --header-link-hover: #121212;
+  --header-bg-scrolled: rgba(255, 255, 255, 0.45);
 }
 
 /* ===========================
@@ -58,6 +63,11 @@
 
   --color-success: #51cf66;
   --color-success-text: #1a1a1a;
+
+  /* Header / Links */
+  --header-link: rgba(238, 238, 238, 0.85);
+  --header-link-hover: #ffffff;
+  --header-bg-scrolled: rgba(0, 0, 0, 0.45);
 }
 
 /* ===========================
@@ -152,7 +162,6 @@ body {
 }
 
 /* SCROLLBAR CUSTOM */
-
 /* Navegadores baseados em WebKit (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
   width: 6px;

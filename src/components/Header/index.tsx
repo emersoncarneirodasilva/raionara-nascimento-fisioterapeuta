@@ -12,14 +12,12 @@ import UserMenu from "./UserMenu";
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [authenticated, setAuthenticated] = useState<boolean | null>(null);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     async function checkAuth() {
       try {
-        const res = await fetch("/api/auth/status", {
-          cache: "no-store",
-        });
-
+        const res = await fetch("/api/auth/status", { cache: "no-store" });
         const data = await res.json();
         setAuthenticated(data.authenticated);
       } catch {
@@ -30,10 +28,31 @@ export function Header() {
     checkAuth();
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const navLinkClass = scrolled
+    ? "text-[var(--header-link)] hover:text-[var(--header-link-hover)] transition-colors duration-300"
+    : "text-white dark:text-[var(--header-link)] hover:text-[var(--header-link-hover)] transition-colors duration-300";
+
   return (
     <>
-      <header className="absolute top-0 left-0 w-full z-50 py-6 bg-transparent">
-        <Container className="flex items-center justify-between">
+      <header
+        className={`
+          fixed top-0 left-0 w-full z-50
+          transition-[background-color,backdrop-filter,box-shadow]
+          duration-500 ease-out
+          ${
+            scrolled
+              ? "bg-(--header-bg-scrolled) backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.06)]"
+              : "bg-transparent"
+          }
+        `}
+      >
+        <Container className="flex items-center justify-between py-6">
           {/* Logo */}
           <Link href="/">
             <div className="flex items-center gap-2">
@@ -46,6 +65,7 @@ export function Header() {
                   sizes="32px"
                 />
               </div>
+
               <div className="leading-tight text-primary font-bold">
                 Raionara Nascimento
                 <span className="block text-xs font-light opacity-80">
@@ -56,37 +76,24 @@ export function Header() {
           </Link>
 
           {/* Desktop Menu */}
-          <nav className="hidden text-(--text-black) md:flex gap-8 text-sm lg:text-base font-medium tracking-wide">
-            <Link href="/" className="hover:text-(--color-secondary-hover)">
+          <nav className="hidden md:flex gap-8 text-sm lg:text-base font-medium tracking-wide">
+            <Link href="/" className={navLinkClass}>
               Início
             </Link>
-            <Link
-              href="/sobre"
-              className="hover:text-(--color-secondary-hover)"
-            >
+            <Link href="/sobre" className={navLinkClass}>
               Sobre
             </Link>
-            <Link
-              href="/servicos"
-              className="hover:text-(--color-secondary-hover)"
-            >
+            <Link href="/servicos" className={navLinkClass}>
               Serviços
             </Link>
-            <Link
-              href="/contato"
-              className="hover:text-(--color-secondary-hover)"
-            >
+            <Link href="/contato" className={navLinkClass}>
               Contato
             </Link>
 
-            {/* troca automática */}
             {authenticated ? (
               <UserMenu />
             ) : (
-              <Link
-                href="/login"
-                className="hover:text-(--color-secondary-hover)"
-              >
+              <Link href="/login" className={navLinkClass}>
                 Entrar
               </Link>
             )}
@@ -96,14 +103,13 @@ export function Header() {
           <div className="flex items-center gap-4">
             <Link
               href="/servicos#servicos"
-              className="hidden md:inline-block px-5 py-2 bg-button-color text-white backdrop-blur-md border border-white/30 rounded text-sm hover:bg-(--bg-button-color)/90 hover:scale-[1.02] transition-all duration-300"
+              className="hidden md:inline-block px-5 py-2 bg-button-color text-white backdrop-blur-md border border-white/30 rounded text-sm hover:scale-[1.02] transition-all"
             >
               Agendar
             </Link>
 
             <ThemeToggleButton />
 
-            {/* Mobile Menu Button */}
             <button
               className="md:hidden"
               onClick={() => setMenuOpen(true)}
@@ -115,7 +121,6 @@ export function Header() {
         </Container>
       </header>
 
-      {/* Mobile Menu Overlay */}
       <MobileMenu
         open={menuOpen}
         onClose={() => setMenuOpen(false)}

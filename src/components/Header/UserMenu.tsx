@@ -36,7 +36,7 @@ export default function UserMenu() {
       {/* Perfil vira Link */}
       <Link
         href="/perfil"
-        className="hover:text-(--color-secondary-hover) cursor-pointer"
+        className="text-(--header-link) hover:text-(--header-link-hover) cursor-pointer"
       >
         Perfil
       </Link>
