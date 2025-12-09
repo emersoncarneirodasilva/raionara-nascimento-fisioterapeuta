@@ -4,7 +4,10 @@ import { Home, Laptop } from "lucide-react";
 
 export default function ServiceModalitiesSection() {
   return (
-    <section id="modalidades_de_atendimento" className="py-28 bg-background">
+    <section
+      id="modalidades_de_atendimento"
+      className="py-28 bg-background scroll-mt-21"
+    >
       <Container>
         <h2 className="text-3xl md:text-4xl font-medium text-center text-foreground">
           Modalidades de Atendimento

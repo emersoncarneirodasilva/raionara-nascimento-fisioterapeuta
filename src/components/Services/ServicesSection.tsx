@@ -8,7 +8,7 @@ export default async function ServicesSection() {
   const services = await fetchServices(professionals[0].id);
 
   return (
-    <section id="servicos" className="py-24 bg-background">
+    <section id="servicos" className="py-24 bg-background scroll-mt-21">
       <Container>
         <h1 className="text-3xl text-center font-medium md:text-4xl mb-16 text-foreground">
           Áreas de Atuação
