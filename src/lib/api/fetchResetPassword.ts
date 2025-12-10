@@ -13,6 +13,7 @@ export async function fetchResetPassword(
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token, newPassword }),
+        cache: "no-store",
       }
     );
 

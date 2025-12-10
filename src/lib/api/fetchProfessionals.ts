@@ -7,7 +7,7 @@ export default async function fetchProfessionals(): Promise<ProfessionalsRespons
     `${process.env.NEXT_PUBLIC_API_URL}/professionals/slug/${slug}`,
     {
       method: "GET",
-      cache: "no-store",
+      next: { tags: ["professionals"] },
     }
   );
 

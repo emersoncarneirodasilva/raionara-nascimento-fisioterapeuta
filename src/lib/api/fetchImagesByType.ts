@@ -13,7 +13,7 @@ export default async function fetchImagesByType(
     }/images/${slug}/types?type=${encodeURIComponent(type)}`,
     {
       method: "GET",
-      cache: "no-store",
+      next: { tags: ["images"] },
     }
   );
 

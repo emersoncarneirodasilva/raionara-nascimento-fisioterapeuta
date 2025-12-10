@@ -16,7 +16,7 @@ export default async function fetchMyProfile(
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      cache: "no-store",
+      next: { tags: ["myProfile"] },
     }
   );
 

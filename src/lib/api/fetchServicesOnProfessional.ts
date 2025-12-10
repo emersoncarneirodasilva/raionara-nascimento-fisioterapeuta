@@ -9,7 +9,7 @@ export default async function fetchServices(
     `${process.env.NEXT_PUBLIC_API_URL}/services-on-professionals/public/${slug}/${professionalId}`,
     {
       method: "GET",
-      cache: "no-store",
+      next: { tags: ["services"] },
     }
   );
 

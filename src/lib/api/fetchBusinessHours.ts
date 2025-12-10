@@ -11,7 +11,7 @@ export default async function fetchBusinessHours(): Promise<BusinessHour[]> {
     `${process.env.NEXT_PUBLIC_API_URL}/business-hours/public/${slug}`,
     {
       method: "GET",
-      cache: "no-store",
+      next: { tags: ["business-hours"] },
     }
   );
 

@@ -9,7 +9,7 @@ export default async function fetchAppointments(
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    cache: "no-store",
+    next: { tags: ["appointments"] },
   });
 
   if (!res.ok) {

@@ -21,8 +21,9 @@ export default async function fetchMyNotifications(
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/notifications/me?${query.toString()}`,
     {
+      method: "GET",
       headers: { Authorization: `Bearer ${token}` },
-      cache: "no-store",
+      next: { tags: ["notifications"] },
     }
   );
 

@@ -9,7 +9,7 @@ export default async function fetchServiceById(
     `${process.env.NEXT_PUBLIC_API_URL}/services/public/${slug}/${serviceId}`,
     {
       method: "GET",
-      cache: "no-store",
+      next: { tags: ["service"] },
     }
   );
 

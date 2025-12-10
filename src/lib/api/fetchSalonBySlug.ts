@@ -3,7 +3,7 @@ export async function fetchSalonBySlug() {
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/salons/${slug}`, {
     method: "GET",
-    cache: "no-store",
+    next: { tags: ["salon"] },
   });
 
   if (!res.ok) {
