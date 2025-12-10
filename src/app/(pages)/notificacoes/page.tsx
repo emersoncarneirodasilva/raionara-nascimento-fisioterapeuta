@@ -5,6 +5,7 @@ import fetchMyNotifications from "@/src/lib/api/fetchMyNotifications";
 import NotificationCard from "@/src/components/Notifications/NotificationCard";
 import { buildQuery } from "@/src/utils/buildQuery";
 import Link from "next/link";
+import Pagination from "@/src/components/Pagination/Pagination";
 
 export const metadata: Metadata = {
   title: "Raionara Nascimento - Notificações",
@@ -117,44 +118,13 @@ export default async function NotificationsPage({
         )}
 
         {/* PAGINAÇÃO */}
-        {totalPages > 1 && (
-          <div className="max-w-4xl mx-auto mt-12 px-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
-            {/* Botão Anterior */}
-            {page > 1 && (
-              <Link
-                href={buildQuery({
-                  page: page - 1,
-                  limit,
-                  search,
-                  isRead,
-                })}
-                className="px-4 py-2 rounded-lg border bg-surface text-foreground hover:bg-surface-alt border-(--color-secondary) text-center"
-              >
-                ← Anterior
-              </Link>
-            )}
-
-            {/* Indicador de página */}
-            <span className="text-sm px-4 py-2 text-foreground bg-surface rounded-lg border border-(--color-secondary) text-center">
-              Página {page} de {totalPages}
-            </span>
-
-            {/* Botão Próxima */}
-            {page < totalPages && (
-              <Link
-                href={buildQuery({
-                  page: page + 1,
-                  limit,
-                  search,
-                  isRead,
-                })}
-                className="px-4 py-2 rounded-lg border bg-surface text-foreground hover:bg-surface-alt border-(--color-secondary) text-center"
-              >
-                Próxima →
-              </Link>
-            )}
-          </div>
-        )}
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          limit={limit}
+          search={search}
+          isRead={isRead}
+        />
       </Container>
     </section>
   );
